@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		98EEE4122839294D004AF505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE4112839294D004AF505 /* AppDelegate.swift */; };
+		98EEE4142839294D004AF505 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE4132839294D004AF505 /* SceneDelegate.swift */; };
+		98EEE4162839294D004AF505 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE4152839294D004AF505 /* MainViewController.swift */; };
+		98EEE41B2839294E004AF505 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98EEE41A2839294E004AF505 /* Assets.xcassets */; };
+		98EEE41E2839294E004AF505 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98EEE41C2839294E004AF505 /* LaunchScreen.storyboard */; };
+		98EEE42D28393622004AF505 /* UIFont + Extensoins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE42C28393622004AF505 /* UIFont + Extensoins.swift */; };
+		98EEE42F28393646004AF505 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE42E28393646004AF505 /* UIColor + Extensions.swift */; };
+		98EEE43128393682004AF505 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE43028393682004AF505 /* UIView + Extensions.swift */; };
+		98EEE433283936A0004AF505 /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE432283936A0004AF505 /* UIStackView + Extensions.swift */; };
+		98EEE43628393AC3004AF505 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98EEE43528393AC3004AF505 /* Roboto-Bold.ttf */; };
+		98EEE43828393ACC004AF505 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98EEE43728393ACC004AF505 /* Roboto-Medium.ttf */; };
+		98EEE43B283952AF004AF505 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE43A283952AF004AF505 /* CalendarView.swift */; };
+		98EEE43E283982B4004AF505 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE43D283982B4004AF505 /* CalendarCollectionViewCell.swift */; };
+		98EEE441283986AA004AF505 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE440283986AA004AF505 /* WeatherView.swift */; };
+		98EEE443283997A5004AF505 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE442283997A5004AF505 /* WorkoutTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		98EEE40E2839294D004AF505 /* FitPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		98EEE4112839294D004AF505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		98EEE4132839294D004AF505 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		98EEE4152839294D004AF505 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		98EEE41A2839294E004AF505 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		98EEE41D2839294E004AF505 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		98EEE41F2839294E004AF505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98EEE42C28393622004AF505 /* UIFont + Extensoins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extensoins.swift"; sourceTree = "<group>"; };
+		98EEE42E28393646004AF505 /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
+		98EEE43028393682004AF505 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
+		98EEE432283936A0004AF505 /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
+		98EEE43528393AC3004AF505 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		98EEE43728393ACC004AF505 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		98EEE43A283952AF004AF505 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		98EEE43D283982B4004AF505 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		98EEE440283986AA004AF505 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		98EEE442283997A5004AF505 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		98EEE40B2839294D004AF505 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		98EEE4052839294D004AF505 = {
+			isa = PBXGroup;
+			children = (
+				98EEE4102839294D004AF505 /* FitPro */,
+				98EEE40F2839294D004AF505 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		98EEE40F2839294D004AF505 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98EEE40E2839294D004AF505 /* FitPro.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98EEE4102839294D004AF505 /* FitPro */ = {
+			isa = PBXGroup;
+			children = (
+				98EEE42528393513004AF505 /* Application */,
+				98EEE42628393547004AF505 /* Models */,
+				98EEE42828393556004AF505 /* Views */,
+				98EEE4272839354E004AF505 /* Controllers */,
+				98EEE4292839358E004AF505 /* Extensions */,
+				98EEE42A283935BF004AF505 /* Resources */,
+			);
+			path = FitPro;
+			sourceTree = "<group>";
+		};
+		98EEE42528393513004AF505 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				98EEE4112839294D004AF505 /* AppDelegate.swift */,
+				98EEE4132839294D004AF505 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		98EEE42628393547004AF505 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		98EEE4272839354E004AF505 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				98EEE4152839294D004AF505 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		98EEE42828393556004AF505 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				98EEE4392839529B004AF505 /* MainVC */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		98EEE4292839358E004AF505 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				98EEE42B2839360B004AF505 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		98EEE42A283935BF004AF505 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				98EEE43428393A65004AF505 /* Fonts */,
+				98EEE41A2839294E004AF505 /* Assets.xcassets */,
+				98EEE41C2839294E004AF505 /* LaunchScreen.storyboard */,
+				98EEE41F2839294E004AF505 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		98EEE42B2839360B004AF505 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				98EEE42C28393622004AF505 /* UIFont + Extensoins.swift */,
+				98EEE42E28393646004AF505 /* UIColor + Extensions.swift */,
+				98EEE43028393682004AF505 /* UIView + Extensions.swift */,
+				98EEE432283936A0004AF505 /* UIStackView + Extensions.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		98EEE43428393A65004AF505 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				98EEE43528393AC3004AF505 /* Roboto-Bold.ttf */,
+				98EEE43728393ACC004AF505 /* Roboto-Medium.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		98EEE4392839529B004AF505 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				98EEE43A283952AF004AF505 /* CalendarView.swift */,
+				98EEE440283986AA004AF505 /* WeatherView.swift */,
+				98EEE43F283982B7004AF505 /* Cells */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		98EEE43F283982B7004AF505 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				98EEE43D283982B4004AF505 /* CalendarCollectionViewCell.swift */,
+				98EEE442283997A5004AF505 /* WorkoutTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		98EEE40D2839294D004AF505 /* FitPro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98EEE4222839294E004AF505 /* Build configuration list for PBXNativeTarget "FitPro" */;
+			buildPhases = (
+				98EEE40A2839294D004AF505 /* Sources */,
+				98EEE40B2839294D004AF505 /* Frameworks */,
+				98EEE40C2839294D004AF505 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FitPro;
+			productName = FitPro;
+			productReference = 98EEE40E2839294D004AF505 /* FitPro.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98EEE4062839294D004AF505 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					98EEE40D2839294D004AF505 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 98EEE4092839294D004AF505 /* Build configuration list for PBXProject "FitPro" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 98EEE4052839294D004AF505;
+			productRefGroup = 98EEE40F2839294D004AF505 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98EEE40D2839294D004AF505 /* FitPro */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		98EEE40C2839294D004AF505 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98EEE43828393ACC004AF505 /* Roboto-Medium.ttf in Resources */,
+				98EEE41E2839294E004AF505 /* LaunchScreen.storyboard in Resources */,
+				98EEE41B2839294E004AF505 /* Assets.xcassets in Resources */,
+				98EEE43628393AC3004AF505 /* Roboto-Bold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98EEE40A2839294D004AF505 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98EEE42D28393622004AF505 /* UIFont + Extensoins.swift in Sources */,
+				98EEE42F28393646004AF505 /* UIColor + Extensions.swift in Sources */,
+				98EEE43B283952AF004AF505 /* CalendarView.swift in Sources */,
+				98EEE433283936A0004AF505 /* UIStackView + Extensions.swift in Sources */,
+				98EEE443283997A5004AF505 /* WorkoutTableViewCell.swift in Sources */,
+				98EEE4162839294D004AF505 /* MainViewController.swift in Sources */,
+				98EEE441283986AA004AF505 /* WeatherView.swift in Sources */,
+				98EEE4122839294D004AF505 /* AppDelegate.swift in Sources */,
+				98EEE43E283982B4004AF505 /* CalendarCollectionViewCell.swift in Sources */,
+				98EEE43128393682004AF505 /* UIView + Extensions.swift in Sources */,
+				98EEE4142839294D004AF505 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		98EEE41C2839294E004AF505 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				98EEE41D2839294E004AF505 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		98EEE4202839294E004AF505 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		98EEE4212839294E004AF505 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		98EEE4232839294E004AF505 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FLGV35VRD5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FitPro/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = team.FitPro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		98EEE4242839294E004AF505 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FLGV35VRD5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FitPro/Resources/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = team.FitPro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98EEE4092839294D004AF505 /* Build configuration list for PBXProject "FitPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98EEE4202839294E004AF505 /* Debug */,
+				98EEE4212839294E004AF505 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98EEE4222839294E004AF505 /* Build configuration list for PBXNativeTarget "FitPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98EEE4232839294E004AF505 /* Debug */,
+				98EEE4242839294E004AF505 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98EEE4062839294D004AF505 /* Project object */;
+}

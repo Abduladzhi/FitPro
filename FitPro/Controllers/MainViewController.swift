@@ -77,6 +77,7 @@ class MainViewController: UIViewController {
         tableView.bounces = false
         tableView.showsVerticalScrollIndicator = false
         tableView.delaysContentTouches = false
+//        tableView.isHidden = true
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -158,14 +159,14 @@ extension MainViewController {
         ])
         
         NSLayoutConstraint.activate([
-            noWorkoutImageView.widthAnchor.constraint(equalToConstant: 270),
-            noWorkoutImageView.heightAnchor.constraint(equalToConstant: 300),
-            noWorkoutImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            noWorkoutImageView.topAnchor.constraint(equalTo: nameWorkoutTodayLabel.bottomAnchor, constant: 24)
+            noWorkoutImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            noWorkoutImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            noWorkoutImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
+            noWorkoutImageView.topAnchor.constraint(equalTo: nameWorkoutTodayLabel.bottomAnchor, constant: 0)
         ])
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: nameWorkoutTodayLabel.bottomAnchor, constant: 10),
+            tableView.topAnchor.constraint(equalTo: nameWorkoutTodayLabel.bottomAnchor, constant: 0),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
@@ -184,6 +185,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
+    }
     
 }

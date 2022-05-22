@@ -52,8 +52,6 @@ extension CalendarView: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
         return cell
     }
-    
-    
 }
 
 //MARK: - UICollectionViewDelegate

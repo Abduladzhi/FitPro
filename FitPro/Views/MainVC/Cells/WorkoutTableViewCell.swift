@@ -37,13 +37,15 @@ class WorkoutTableViewCell: UITableViewCell {
     }()
     
     private let startButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Start", for: .normal)
         button.backgroundColor = .specialYellow
         button.tintColor = .specialDarkGreen
+        button.titleLabel?.font = .robotoBold16()
         button.layer.cornerRadius = 10
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         button.addShadowOnView()
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -74,6 +76,8 @@ class WorkoutTableViewCell: UITableViewCell {
         return label
     }()
     
+    var labelsStackViews = UIStackView()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setViews()
@@ -84,43 +88,69 @@ class WorkoutTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    @objc private func startButtonTapped() {
+        
+    }
+    
     private func setViews() {
+        backgroundColor = .clear
+        selectionStyle = .none
+        labelsStackViews = UIStackView(arrangedSubviews: [repsLabel, setsLabel], axis: .horizontal, spacing: 10)
         addSubview(backgroundCell)
         addSubview(workoutBackgroundView)
         addSubview(workoutImageView)
-        addSubview(startButton)
+        contentView.addSubview(startButton)
+        addSubview(nameLabel)
+        addSubview(labelsStackViews)
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            backgroundCell.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            backgroundCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            backgroundCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            backgroundCell.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            backgroundCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            backgroundCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             backgroundCell.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            backgroundCell.heightAnchor.constraint(equalToConstant: 97),
-            
         ])
         
+        
         NSLayoutConstraint.activate([
-            workoutBackgroundView.heightAnchor.constraint(equalToConstant: 80),
-            workoutBackgroundView.widthAnchor.constraint(equalToConstant: 77),
             workoutBackgroundView.centerYAnchor.constraint(equalTo: backgroundCell.centerYAnchor),
-            workoutBackgroundView.leadingAnchor.constraint(equalTo: backgroundCell.leadingAnchor, constant: 8),
+            workoutBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            workoutBackgroundView.heightAnchor.constraint(equalToConstant: 70),
+            workoutBackgroundView.widthAnchor.constraint(equalToConstant: 70),
         ])
         
-        NSLayoutConstraint.activate([
-            workoutImageView.heightAnchor.constraint(equalToConstant: 63),
-            workoutImageView.widthAnchor.constraint(equalToConstant: 56),
-            workoutImageView.centerYAnchor.constraint(equalTo: workoutBackgroundView.centerYAnchor),
-            workoutImageView.centerXAnchor.constraint(equalTo: workoutBackgroundView.centerXAnchor)
-        ])
         
         NSLayoutConstraint.activate([
-            startButton.heightAnchor.constraint(equalToConstant: 29),
-            startButton.widthAnchor.constraint(equalToConstant: 255),
+            workoutImageView.topAnchor.constraint(equalTo: workoutBackgroundView.topAnchor, constant: 10),
+            workoutImageView.leadingAnchor.constraint(equalTo: workoutBackgroundView.leadingAnchor, constant: 10),
+            workoutImageView.trailingAnchor.constraint(equalTo: workoutBackgroundView.trailingAnchor, constant: -10),
+            workoutImageView.bottomAnchor.constraint(equalTo: workoutBackgroundView.bottomAnchor, constant: -10)
+        ])
+        
+        
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: backgroundCell.topAnchor, constant: 5),
+            nameLabel.leadingAnchor.constraint(equalTo: workoutBackgroundView.trailingAnchor, constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: backgroundCell.trailingAnchor, constant: -10)
+        ])
+        
+        
+        NSLayoutConstraint.activate([
+            labelsStackViews.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0),
+            labelsStackViews.leadingAnchor.constraint(equalTo: workoutBackgroundView.trailingAnchor, constant: 10),
+            labelsStackViews.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        
+        
+        NSLayoutConstraint.activate([
+            startButton.topAnchor.constraint(equalTo: labelsStackViews.bottomAnchor, constant: 5),
+            startButton.leadingAnchor.constraint(equalTo: workoutBackgroundView.trailingAnchor, constant: 10),
             startButton.trailingAnchor.constraint(equalTo: backgroundCell.trailingAnchor, constant: -10),
-            startButton.bottomAnchor.constraint(equalTo: backgroundCell.bottomAnchor, constant: -10)
+            startButton.heightAnchor.constraint(equalToConstant: 30)
         ])
+        
     }
     
 }

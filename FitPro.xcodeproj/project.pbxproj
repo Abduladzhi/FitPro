@@ -22,6 +22,9 @@
 		98EEE43E283982B4004AF505 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE43D283982B4004AF505 /* CalendarCollectionViewCell.swift */; };
 		98EEE441283986AA004AF505 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE440283986AA004AF505 /* WeatherView.swift */; };
 		98EEE443283997A5004AF505 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE442283997A5004AF505 /* WorkoutTableViewCell.swift */; };
+		98EEE445283AB937004AF505 /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE444283AB937004AF505 /* NewWorkoutViewController.swift */; };
+		98EEE448283AC388004AF505 /* DateAndRepeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE447283AC388004AF505 /* DateAndRepeatView.swift */; };
+		98EEE44A283AC3AC004AF505 /* RepsOrTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE449283AC3AC004AF505 /* RepsOrTimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		98EEE43D283982B4004AF505 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		98EEE440283986AA004AF505 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		98EEE442283997A5004AF505 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
+		98EEE444283AB937004AF505 /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
+		98EEE447283AC388004AF505 /* DateAndRepeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndRepeatView.swift; sourceTree = "<group>"; };
+		98EEE449283AC3AC004AF505 /* RepsOrTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsOrTimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				98EEE4152839294D004AF505 /* MainViewController.swift */,
+				98EEE444283AB937004AF505 /* NewWorkoutViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -112,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				98EEE4392839529B004AF505 /* MainVC */,
+				98EEE446283AC34E004AF505 /* NewWorkoutVC */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +180,15 @@
 				98EEE442283997A5004AF505 /* WorkoutTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		98EEE446283AC34E004AF505 /* NewWorkoutVC */ = {
+			isa = PBXGroup;
+			children = (
+				98EEE447283AC388004AF505 /* DateAndRepeatView.swift */,
+				98EEE449283AC3AC004AF505 /* RepsOrTimerView.swift */,
+			);
+			path = NewWorkoutVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,10 +268,13 @@
 				98EEE43B283952AF004AF505 /* CalendarView.swift in Sources */,
 				98EEE433283936A0004AF505 /* UIStackView + Extensions.swift in Sources */,
 				98EEE443283997A5004AF505 /* WorkoutTableViewCell.swift in Sources */,
+				98EEE448283AC388004AF505 /* DateAndRepeatView.swift in Sources */,
 				98EEE4162839294D004AF505 /* MainViewController.swift in Sources */,
 				98EEE441283986AA004AF505 /* WeatherView.swift in Sources */,
 				98EEE4122839294D004AF505 /* AppDelegate.swift in Sources */,
+				98EEE44A283AC3AC004AF505 /* RepsOrTimerView.swift in Sources */,
 				98EEE43E283982B4004AF505 /* CalendarCollectionViewCell.swift in Sources */,
+				98EEE445283AB937004AF505 /* NewWorkoutViewController.swift in Sources */,
 				98EEE43128393682004AF505 /* UIView + Extensions.swift in Sources */,
 				98EEE4142839294D004AF505 /* SceneDelegate.swift in Sources */,
 			);

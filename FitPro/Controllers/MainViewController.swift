@@ -112,10 +112,10 @@ class MainViewController: UIViewController {
         view.addSubview(tableView)
     }
     @objc private func addWorkoutButtonTapped() {
-        print("addWorkoutButtonTapped")
+        let newWorkoutViewController = NewWorkoutViewController()
+        present(newWorkoutViewController, animated: true)
     }
 }
-
 
 extension MainViewController {
     private func setConstraints() {
@@ -174,7 +174,6 @@ extension MainViewController {
     }
 }
 
-
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         22
@@ -188,5 +187,4 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
     }
-    
 }

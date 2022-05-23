@@ -24,7 +24,7 @@ class WeatherView: UIView {
        let label = UILabel()
         label.text = "Хорошая погода, чтобы позаниматься на улице"
         label.numberOfLines = 2
-        label.textColor = .specialGray
+        label.textColor = .specialLightBrown
         label.font = .robotoMedium14()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

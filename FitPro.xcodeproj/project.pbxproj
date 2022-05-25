@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		984E28E5283E601200AAB28B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E28E4283E601200AAB28B /* MainTabBarController.swift */; };
+		984E28E7283E619800AAB28B /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E28E6283E619800AAB28B /* StatisticViewController.swift */; };
+		984E28E9283E61C700AAB28B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E28E8283E61C700AAB28B /* ProfileViewController.swift */; };
+		984E28EB283E66F500AAB28B /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984E28EA283E66F500AAB28B /* UILabel + Extension.swift */; };
+		984E28EE283E80C400AAB28B /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 984E28ED283E80C400AAB28B /* Realm */; };
+		984E28F0283E80C400AAB28B /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 984E28EF283E80C400AAB28B /* RealmSwift */; };
 		98EEE4122839294D004AF505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE4112839294D004AF505 /* AppDelegate.swift */; };
 		98EEE4142839294D004AF505 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE4132839294D004AF505 /* SceneDelegate.swift */; };
 		98EEE4162839294D004AF505 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EEE4152839294D004AF505 /* MainViewController.swift */; };
@@ -28,6 +34,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		984E28E4283E601200AAB28B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		984E28E6283E619800AAB28B /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
+		984E28E8283E61C700AAB28B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		984E28EA283E66F500AAB28B /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		98EEE40E2839294D004AF505 /* FitPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98EEE4112839294D004AF505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98EEE4132839294D004AF505 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				984E28F0283E80C400AAB28B /* RealmSwift in Frameworks */,
+				984E28EE283E80C400AAB28B /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,8 +121,11 @@
 		98EEE4272839354E004AF505 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				984E28E4283E601200AAB28B /* MainTabBarController.swift */,
 				98EEE4152839294D004AF505 /* MainViewController.swift */,
 				98EEE444283AB937004AF505 /* NewWorkoutViewController.swift */,
+				984E28E6283E619800AAB28B /* StatisticViewController.swift */,
+				984E28E8283E61C700AAB28B /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -150,6 +165,7 @@
 				98EEE42E28393646004AF505 /* UIColor + Extensions.swift */,
 				98EEE43028393682004AF505 /* UIView + Extensions.swift */,
 				98EEE432283936A0004AF505 /* UIStackView + Extensions.swift */,
+				984E28EA283E66F500AAB28B /* UILabel + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -207,6 +223,10 @@
 			dependencies = (
 			);
 			name = FitPro;
+			packageProductDependencies = (
+				984E28ED283E80C400AAB28B /* Realm */,
+				984E28EF283E80C400AAB28B /* RealmSwift */,
+			);
 			productName = FitPro;
 			productReference = 98EEE40E2839294D004AF505 /* FitPro.app */;
 			productType = "com.apple.product-type.application";
@@ -235,6 +255,9 @@
 				Base,
 			);
 			mainGroup = 98EEE4052839294D004AF505;
+			packageReferences = (
+				984E28EC283E80C400AAB28B /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 98EEE40F2839294D004AF505 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -265,10 +288,13 @@
 			files = (
 				98EEE42D28393622004AF505 /* UIFont + Extensoins.swift in Sources */,
 				98EEE42F28393646004AF505 /* UIColor + Extensions.swift in Sources */,
+				984E28E5283E601200AAB28B /* MainTabBarController.swift in Sources */,
 				98EEE43B283952AF004AF505 /* CalendarView.swift in Sources */,
 				98EEE433283936A0004AF505 /* UIStackView + Extensions.swift in Sources */,
 				98EEE443283997A5004AF505 /* WorkoutTableViewCell.swift in Sources */,
+				984E28EB283E66F500AAB28B /* UILabel + Extension.swift in Sources */,
 				98EEE448283AC388004AF505 /* DateAndRepeatView.swift in Sources */,
+				984E28E9283E61C700AAB28B /* ProfileViewController.swift in Sources */,
 				98EEE4162839294D004AF505 /* MainViewController.swift in Sources */,
 				98EEE441283986AA004AF505 /* WeatherView.swift in Sources */,
 				98EEE4122839294D004AF505 /* AppDelegate.swift in Sources */,
@@ -277,6 +303,7 @@
 				98EEE445283AB937004AF505 /* NewWorkoutViewController.swift in Sources */,
 				98EEE43128393682004AF505 /* UIView + Extensions.swift in Sources */,
 				98EEE4142839294D004AF505 /* SceneDelegate.swift in Sources */,
+				984E28E7283E619800AAB28B /* StatisticViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +517,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		984E28EC283E80C400AAB28B /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		984E28ED283E80C400AAB28B /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 984E28EC283E80C400AAB28B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		984E28EF283E80C400AAB28B /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 984E28EC283E80C400AAB28B /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 98EEE4062839294D004AF505 /* Project object */;
 }

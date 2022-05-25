@@ -9,6 +9,13 @@ import UIKit
 
 class NewWorkoutViewController: UIViewController {
     
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.bounces = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     let newWorkoutLabel: UILabel = {
         let label = UILabel()
         label.text = "NEW WORKOUT"
@@ -88,8 +95,23 @@ class NewWorkoutViewController: UIViewController {
         super.viewDidLoad()
         setViews()
         setConstraints()
+        setDelegates()
+        addTaps()
     }
     
+    private func addTaps() {
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapScreen.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapScreen)
+    }
+    
+    @objc private func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    private func setDelegates() {
+        textField.delegate = self
+    }
     
     @objc private func tappedCloseButton() {
         dismiss(animated: true)
@@ -97,56 +119,73 @@ class NewWorkoutViewController: UIViewController {
     
     private func setViews() {
         view.backgroundColor = .specialBackground
-        view.addSubview(newWorkoutLabel)
-        view.addSubview(closeButton)
-        view.addSubview(nameTextField)
-        view.addSubview(textField)
-        view.addSubview(nameDateAndRepeatLabel)
-        view.addSubview(dateAndRepeatView)
-        view.addSubview(repsOrTimerLabel)
-        view.addSubview(repsOrTimer)
-        view.addSubview(saveButton)
+        view.addSubview(scrollView)
+        scrollView.addSubview(newWorkoutLabel)
+        scrollView.addSubview(closeButton)
+        scrollView.addSubview(nameTextField)
+        scrollView.addSubview(textField)
+        scrollView.addSubview(nameDateAndRepeatLabel)
+        scrollView.addSubview(dateAndRepeatView)
+        scrollView.addSubview(repsOrTimerLabel)
+        scrollView.addSubview(repsOrTimer)
+        scrollView.addSubview(saveButton)
     }
+
+// MARK: SetConstraints
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            newWorkoutLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 15),
-            newWorkoutLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            
+            newWorkoutLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 15),
+            newWorkoutLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
 
             closeButton.heightAnchor.constraint(equalToConstant: 30),
             closeButton.widthAnchor.constraint(equalToConstant: 30),
-            closeButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 15),
-            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -21),
-
+            closeButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 15),
+//            closeButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -21),
+            closeButton.leadingAnchor.constraint(equalTo: newWorkoutLabel.trailingAnchor, constant: 10),
+            
             nameTextField.topAnchor.constraint(equalTo: newWorkoutLabel.bottomAnchor, constant: 10),
-            nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            nameTextField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 32),
 //            
             textField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 2),
-            textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21),
+            textField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            textField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 21),
             textField.heightAnchor.constraint(equalToConstant: 38),
             
             nameDateAndRepeatLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 14),
-            nameDateAndRepeatLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            nameDateAndRepeatLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 32),
             
-            dateAndRepeatView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dateAndRepeatView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21),
+            dateAndRepeatView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            dateAndRepeatView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 21),
             dateAndRepeatView.heightAnchor.constraint(equalToConstant: 93),
             dateAndRepeatView.topAnchor.constraint(equalTo: nameDateAndRepeatLabel.bottomAnchor, constant: 1),
             
             repsOrTimerLabel.topAnchor.constraint(equalTo: dateAndRepeatView.bottomAnchor, constant: 20),
-            repsOrTimerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            repsOrTimerLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 32),
             
-            repsOrTimer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            repsOrTimer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21),
+            repsOrTimer.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            repsOrTimer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 21),
             repsOrTimer.heightAnchor.constraint(equalToConstant: 275),
             repsOrTimer.topAnchor.constraint(equalTo: repsOrTimerLabel.bottomAnchor, constant: 1),
             
-            saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            saveButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             saveButton.topAnchor.constraint(equalTo: repsOrTimer.bottomAnchor, constant: 20),
-            saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 21),
-            saveButton.heightAnchor.constraint(equalToConstant: 55)
+            saveButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 21),
+            saveButton.heightAnchor.constraint(equalToConstant: 55),
+            saveButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20)
         ])
     }
     
+}
+
+extension NewWorkoutViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
 }

@@ -122,32 +122,30 @@ class RepsOrTimerView: UIView {
     
     @objc private func repsChangetSlider() {
         numberReps.text = "\(Int(repsSlider.value))"
-        
-        timerSlider.alpha = 0.5
-        numberTimer.alpha = 0.5
-        timerStackView.alpha = 0.5
-        numberTimer.text =  "0"
-        timerSlider.value = 0
-        repsSlider.alpha = 1
-        repsStackView.alpha = 1
-        numberReps.alpha = 1
+        setNegative(label: nameTimer, number: numberTimer, slider: timerSlider)
+        setActive(label: nameReps, number: numberReps, slider: repsSlider)
     }
     
     @objc private func timerChangetSlider() {
         let (min, sec) = { (secs: Int) -> (Int, Int) in
             return ((secs % 3600) / 60, (secs % 3600) % 60)}(Int(timerSlider.value))
-        
         numberTimer.text = sec != 0 ? "\(min) min \(sec) sec" : "\(min) min"
-        
-        repsSlider.alpha = 0.5
-        repsStackView.alpha = 0.5
-        numberReps.alpha = 0.5
-        repsSlider.value = 0
-        numberReps.text = "0"
-        
-        timerSlider.alpha = 1
-        numberTimer.alpha = 1
-        timerStackView.alpha = 1
+        setNegative(label: nameReps, number: numberReps, slider: repsSlider)
+        setActive(label: nameTimer, number: numberTimer, slider: timerSlider)
+    }
+    
+    private func setActive(label: UILabel, number: UILabel, slider: UISlider) {
+        label.alpha = 1
+        number.alpha = 1
+        slider.alpha = 1
+    }
+    
+    private func setNegative(label: UILabel, number: UILabel, slider: UISlider) {
+        label.alpha = 0.5
+        label.text = "0"
+        number.alpha = 0.5
+        slider.alpha = 0.5
+        slider.value = 0
     }
     
     private func setViews() {
@@ -165,6 +163,8 @@ class RepsOrTimerView: UIView {
         addSubview(timerStackView)
         addSubview(timerSlider)
     }
+    
+    //MARK: SetConstraints
     private func setConstraints() {
         NSLayoutConstraint.activate([
             setsStackView.topAnchor.constraint(equalTo: topAnchor, constant: 21),

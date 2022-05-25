@@ -117,6 +117,8 @@ class MainViewController: UIViewController {
     }
 }
 
+//MARK: SetConstraints
+
 extension MainViewController {
     private func setConstraints() {
         NSLayoutConstraint.activate([
@@ -173,6 +175,8 @@ extension MainViewController {
         ])
     }
 }
+
+//MARK: UITableViewDelegate, UITableViewDataSource
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

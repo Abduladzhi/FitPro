@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainViewController: UIViewController {
     
@@ -53,7 +54,7 @@ class MainViewController: UIViewController {
     }()
     
     private let nameWorkoutTodayLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Workout today"
         label.font = .robotoMedium14()
         label.textColor = .lightGray
@@ -71,25 +72,31 @@ class MainViewController: UIViewController {
     }()
     
     private let tableView: UITableView = {
-       let tableView = UITableView()
+        let tableView = UITableView()
         tableView.backgroundColor = .none
         tableView.separatorStyle = .none
         tableView.bounces = false
         tableView.showsVerticalScrollIndicator = false
         tableView.delaysContentTouches = false
-//        tableView.isHidden = true
+        //        tableView.isHidden = true
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
     private let calendarView = CalendarView()
     private let weatherView = WeatherView()
+    private let localRealm = try! Realm()
+    private var workoutArray: Results<WorkoutModel>? = nil
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.width / 2
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +105,7 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         setupViews()
         setConstraints()
+        getWorkouts(date: Date())
     }
     
     private func setupViews() {
@@ -113,8 +121,29 @@ class MainViewController: UIViewController {
     }
     @objc private func addWorkoutButtonTapped() {
         let newWorkoutViewController = NewWorkoutViewController()
+        newWorkoutViewController.modalPresentationStyle = .fullScreen
         present(newWorkoutViewController, animated: true)
     }
+    
+    private func getWorkouts(date: Date) {
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.weekday], from: date)
+        guard let weekday = components.weekday else { return }
+        let dateStart = date
+        let dateEnd: Date = {
+            let components = DateComponents(day: 1, second: -1)
+            return Calendar.current.date(byAdding: components, to: dateStart) ?? Date()
+        }()
+        
+        let predicateRepeat = NSPredicate(format: "workoutNumberOfDay = \(weekday) AND workoutPepeat = true" )
+        let predicateUnrepeat = NSPredicate(format: "workoutPepeat = false AND workoutDate BETWEEN %@", [dateStart, dateEnd])
+        let compound = NSCompoundPredicate(type: .or, subpredicates: [predicateRepeat, predicateUnrepeat])
+        
+        workoutArray = localRealm.objects(WorkoutModel.self).filter(compound).sorted(byKeyPath: "workoutName")
+        tableView.reloadData()
+    }
+    
 }
 
 //MARK: SetConstraints
@@ -180,12 +209,13 @@ extension MainViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        22
+        return workoutArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: WorkoutTableViewCell.identifier, for: indexPath) as? WorkoutTableViewCell else { return UITableViewCell() }
-        
+        let model = workoutArray?[indexPath.row]
+        cell.configureCell(model: model!)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

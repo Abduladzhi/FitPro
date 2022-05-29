@@ -93,6 +93,21 @@ class WorkoutTableViewCell: UITableViewCell {
         
     }
     
+    
+    
+    func configureCell(model: WorkoutModel) {
+        nameLabel.text = model.workoutName
+        let (min, sec) = { (secs: Int) -> (Int, Int) in
+            return (secs  / 60, secs % 60)}(Int(model.workoutTimer))
+        
+        repsLabel.text = (model.workoutTimer == 0 ? "Reps: \(model.workoutReps)" : "Timer: \(min) min \(sec) sec")
+        setsLabel.text = "Sets: \(model.workoutSets)"
+        
+        guard let imageData = model.workoutImage else { return }
+        guard let image = UIImage(data: imageData) else { return }
+        workoutImageView.image = image
+    }
+    
     private func setViews() {
         backgroundColor = .clear
         selectionStyle = .none

@@ -128,7 +128,8 @@ class RepsOrTimerView: UIView {
     
     @objc private func timerChangetSlider() {
         let (min, sec) = { (secs: Int) -> (Int, Int) in
-            return ((secs % 3600) / 60, (secs % 3600) % 60)}(Int(timerSlider.value))
+            return (secs  / 60, secs % 60)}(Int(timerSlider.value))
+        
         numberTimer.text = sec != 0 ? "\(min) min \(sec) sec" : "\(min) min"
         setNegative(label: nameReps, number: numberReps, slider: repsSlider)
         setActive(label: nameTimer, number: numberTimer, slider: timerSlider)
@@ -142,7 +143,7 @@ class RepsOrTimerView: UIView {
     
     private func setNegative(label: UILabel, number: UILabel, slider: UISlider) {
         label.alpha = 0.5
-        label.text = "0"
+        number.text = "0"
         number.alpha = 0.5
         slider.alpha = 0.5
         slider.value = 0

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class NewWorkoutViewController: UIViewController {
     
@@ -35,14 +36,14 @@ class NewWorkoutViewController: UIViewController {
         return button
     }()
     
-    let nameTextField: UILabel = {
-        let label = UILabel()
-        label.text = "Name"
-        label.textColor = .specialLightBrown
-        label.font = .robotoMedium14()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+//    let textFieldLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "Name"
+//        label.textColor = .specialLightBrown
+//        label.font = .robotoMedium14()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
     
     let textField: UITextField = {
        let textField = UITextField()
@@ -81,6 +82,7 @@ class NewWorkoutViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Save", for: .normal)
         button.tintColor = .white
+        button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         button.titleLabel?.font = .robotoBold16()
         button.layer.cornerRadius = 10
         button.backgroundColor = .specialGreen
@@ -90,6 +92,11 @@ class NewWorkoutViewController: UIViewController {
     
     private let dateAndRepeatView = DateAndRepeatView()
     private let repsOrTimer = RepsOrTimerView()
+    
+    private let localeRealm = try! Realm()
+    private var workoutModel = WorkoutModel()
+    
+    private let testImage = UIImage(named: "imageCell")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,6 +112,12 @@ class NewWorkoutViewController: UIViewController {
         view.addGestureRecognizer(tapScreen)
     }
     
+    @objc private func saveButtonTapped() {
+//        RealmManager.shared.saveWorkOutModel(model: workoutModel)
+        setModel()
+        saveModel()
+    }
+    
     @objc private func hideKeyboard() {
         view.endEditing(true)
     }
@@ -117,12 +130,43 @@ class NewWorkoutViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    private func setModel() {
+        guard let nameWorkout = textField.text else { return }
+        workoutModel.workoutName = nameWorkout
+        workoutModel.workoutDate = dateAndRepeatView.datePicker.date
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.weekday], from: dateAndRepeatView.datePicker.date)
+        guard let weekday = components.weekday else { return }
+        workoutModel.workoutNumberOfDay = weekday
+        workoutModel.workoutPepeat = (dateAndRepeatView.repeatSwith.isOn ? true : false)
+        
+        workoutModel.workoutSets = Int(repsOrTimer.setsSlider.value)
+        workoutModel.workoutReps = Int(repsOrTimer.repsSlider.value)
+        workoutModel.workoutTimer = Int(repsOrTimer.timerSlider.value)
+        
+        guard let imageData = testImage?.pngData() else { return }
+        workoutModel.workoutImage = imageData
+        
+    }
+    
+    private func saveModel() {
+        guard let text = textField.text else { return }
+        let count = text.filter { $0.isNumber || $0.isLetter}.count
+        if count != 0 && workoutModel.workoutSets != 0 && (workoutModel.workoutReps != 0 || workoutModel.workoutTimer != 0) {
+            RealmManager.shared.saveWorkOutModel(model: workoutModel)
+            workoutModel = WorkoutModel()
+            dismiss(animated: true)
+        } else {
+            alertOk(title: "Error", message: "Enter all parameters")
+        }
+    }
+    
     private func setViews() {
         view.backgroundColor = .specialBackground
         view.addSubview(scrollView)
         scrollView.addSubview(newWorkoutLabel)
         scrollView.addSubview(closeButton)
-        scrollView.addSubview(nameTextField)
+//        scrollView.addSubview(textFieldLabel)
         scrollView.addSubview(textField)
         scrollView.addSubview(nameDateAndRepeatLabel)
         scrollView.addSubview(dateAndRepeatView)
@@ -150,10 +194,10 @@ class NewWorkoutViewController: UIViewController {
 //            closeButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -21),
             closeButton.leadingAnchor.constraint(equalTo: newWorkoutLabel.trailingAnchor, constant: 10),
             
-            nameTextField.topAnchor.constraint(equalTo: newWorkoutLabel.bottomAnchor, constant: 10),
-            nameTextField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 32),
+            textField.topAnchor.constraint(equalTo: newWorkoutLabel.bottomAnchor, constant: 10),
+            textField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 32),
 //            
-            textField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 2),
+            textField.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 2),
             textField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             textField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 21),
             textField.heightAnchor.constraint(equalToConstant: 38),
@@ -181,7 +225,6 @@ class NewWorkoutViewController: UIViewController {
             saveButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20)
         ])
     }
-    
 }
 
 extension NewWorkoutViewController: UITextFieldDelegate {
